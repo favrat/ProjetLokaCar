@@ -33,15 +33,20 @@ public class VehiculeDao {
     public long insert(Vehicule item)
     {
         ContentValues content = new ContentValues();
-        content.put(VehiculeContract.COL_NUM_VEHICULE,item.getNum());
-        content.put(VehiculeContract.COL_MARQUE_VEHICULE, String.valueOf(item.getMarque()));
-        content.put(VehiculeContract.COL_MODELEDOSSIER_VEHICULE,item.getModeleDossier());
-        content.put(VehiculeContract.COL_MODELECOMMERCIAL_VEHICULE,item.getModeleCommercial());
-        content.put(VehiculeContract.COL_DESIGNATION_VEHICULE,item.getDesignation());
-        content.put(VehiculeContract.COL_CNIT_VEHICULE,item.getCodeNationalIdentificationType());
-        content.put(VehiculeContract.COL_VERSION_VEHICULE,item.getTypeVarianteVersion());
-        content.put(VehiculeContract.COL_CARBURANT_VEHICULE,item.getCarburant());
-        return db.insert(VehiculeContract.TABLE_VEHICULE,null,content);
+        try {
+            content.put(VehiculeContract.COL_NUM_VEHICULE, item.getNum());
+            //content.put(VehiculeContract.COL_MARQUE_VEHICULE, String.valueOf(item.getMarque()));
+            content.put(VehiculeContract.COL_DESIGNATION_VEHICULE, item.getDesignation());
+            content.put(VehiculeContract.COL_VERSION_VEHICULE, item.getTypeVarianteVersion());
+            content.put(VehiculeContract.COL_COULEUR_VEHICULE, item.getTypeVarianteVersion());
+            content.put(VehiculeContract.COL_CNIT_VEHICULE, item.getCodeNationalIdentificationType());
+            content.put(VehiculeContract.COL_PRIX_VEHICULE, item.getCarburant());
+
+            Log.i("Designation", VehiculeContract.COL_DESIGNATION_VEHICULE);
+        }catch (Exception ex){
+            Log.e("Erreur insertion",ex.getMessage());
+        }
+        return db.insert(VehiculeContract.TABLE_VEHICULE, null, content);
     }
 
     public List<Vehicule> get()
@@ -53,12 +58,11 @@ public class VehiculeDao {
                 Vehicule vehicule = new Vehicule();
                 vehicule.setNum(cursor.getInt(VehiculeContract.NUM_COL_NUM_VEHICULE));
                 //vehicule.setMarque(cursor.getClass(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
-                vehicule.setModeleDossier(cursor.getString(VehiculeContract.NUM_COL_MODELEDOSSIER_VEHICULE));
-                vehicule.setModeleCommercial(cursor.getString(VehiculeContract.NUM_COL_MODELECOMMERCIAL_VEHICULE));
                 vehicule.setDesignation(cursor.getString(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE));
-                vehicule.setCodeNationalIdentificationType(cursor.getString(VehiculeContract.NUM_COL_CNIT_VEHICULE));
                 vehicule.setTypeVarianteVersion(cursor.getString(VehiculeContract.NUM_COL_VERSION_VEHICULE));
-                vehicule.setCarburant(cursor.getString(VehiculeContract.NUM_COL_CARBURANT_VEHICULE));
+                vehicule.setTypeVarianteVersion(cursor.getString(VehiculeContract.NUM_COL_COULEUR_VEHICULE));
+                vehicule.setCodeNationalIdentificationType(cursor.getString(VehiculeContract.NUM_COL_CNIT_VEHICULE));
+                vehicule.setCarburant(cursor.getString(VehiculeContract.NUM_COL_PRIX_VEHICULE));
                 liste.add(vehicule);
             }
         }catch(Exception ex)
@@ -77,12 +81,11 @@ public class VehiculeDao {
     public int update(Vehicule vehicule)
     {
         ContentValues content = new ContentValues();
-        content.put(String.valueOf(VehiculeContract.NUM_COL_MODELEDOSSIER_VEHICULE), vehicule.getModeleDossier());
-        content.put(String.valueOf(VehiculeContract.NUM_COL_MODELECOMMERCIAL_VEHICULE), vehicule.getModeleCommercial());
         content.put(String.valueOf(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE), vehicule.getDesignation());
-        content.put(String.valueOf(VehiculeContract.NUM_COL_CNIT_VEHICULE), vehicule.getCodeNationalIdentificationType());
         content.put(String.valueOf(VehiculeContract.NUM_COL_VERSION_VEHICULE), vehicule.getTypeVarianteVersion());
-        content.put(String.valueOf(VehiculeContract.NUM_COL_CARBURANT_VEHICULE), vehicule.getCarburant());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_COULEUR_VEHICULE), vehicule.getCouleur());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_CNIT_VEHICULE), vehicule.getCodeNationalIdentificationType());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_PRIX_VEHICULE), vehicule.getPrix());
 
         return db.update(VehiculeContract.TABLE_VEHICULE, content, ClientContract.NUM_COL_ID_CLIENT + " = ?",
                 new String[] { String.valueOf(vehicule.getNum()) });

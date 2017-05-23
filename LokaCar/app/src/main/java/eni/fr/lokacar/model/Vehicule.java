@@ -13,6 +13,8 @@ public class Vehicule {
     private String codeNationalIdentificationType;
     private String typeVarianteVersion;
     private String carburant;
+    private String couleur;
+    private String prix;
     /**
      * transmis au format String en français
      * ('oui'/'non')
@@ -45,6 +47,14 @@ public class Vehicule {
      */
 
     public Vehicule() {
+    }
+
+    public Vehicule(String designation, String codeNationalIdentificationType, String typeVarianteVersion, String couleur, String prix) {
+        this.designation = designation;
+        this.codeNationalIdentificationType = codeNationalIdentificationType;
+        this.typeVarianteVersion = typeVarianteVersion;
+        this.couleur = couleur;
+        this.prix = prix;
     }
 
     public int getNum() {
@@ -307,4 +317,19 @@ public class Vehicule {
         this.carrosserie = carrosserie;
     }
 
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+
+    public String getPrix() {
+        return prix;
+    }
+
+    public void setPrix(String prix) {
+        this.prix = prix;
+    }
 }
