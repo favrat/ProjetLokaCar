@@ -12,7 +12,11 @@ import java.util.List;
 import eni.fr.lokacar.dao.contract.ClientContract;
 import eni.fr.lokacar.dao.contract.VehiculeContract;
 import eni.fr.lokacar.helper.GestionBddHelper;
+<<<<<<< Updated upstream
 import eni.fr.lokacar.model.Client;
+=======
+import eni.fr.lokacar.model.Marque;
+>>>>>>> Stashed changes
 import eni.fr.lokacar.model.Vehicule;
 
 /**
@@ -43,7 +47,7 @@ public class VehiculeDao {
         content.put(VehiculeContract.COL_CARBURANT_VEHICULE,item.getCarburant());
         return db.insert(VehiculeContract.TABLE_VEHICULE,null,content);
     }
-
+/*
     public List<Vehicule> get()
     {
         List<Vehicule> liste = new ArrayList<>();
@@ -52,7 +56,11 @@ public class VehiculeDao {
             while (cursor.moveToNext()) {
                 Vehicule vehicule = new Vehicule();
                 vehicule.setNum(cursor.getInt(VehiculeContract.NUM_COL_NUM_VEHICULE));
+<<<<<<< Updated upstream
                 //vehicule.setMarque(cursor.getClass(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
+=======
+                vehicule.setMarque(cursor.getString(VehiculeContract.COL_MARQUE_VEHICULE));
+>>>>>>> Stashed changes
                 vehicule.setModeleDossier(cursor.getString(VehiculeContract.NUM_COL_MODELEDOSSIER_VEHICULE));
                 vehicule.setModeleCommercial(cursor.getString(VehiculeContract.NUM_COL_MODELECOMMERCIAL_VEHICULE));
                 vehicule.setDesignation(cursor.getString(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE));
@@ -66,7 +74,7 @@ public class VehiculeDao {
             Log.e("ListVehicule",ex.getMessage());
         }
         return liste;
-    }
+    }*/
 
     public void delete(Vehicule vehicule) {
         long id = vehicule.getNum();

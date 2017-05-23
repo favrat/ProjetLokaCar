@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ModeleActivity"></activity>
+        <activity android:name=".ModeleActivity" />
+        <activity android:name=".FormVehiculeActivity"></activity>
     </application>
 
 </manifest>

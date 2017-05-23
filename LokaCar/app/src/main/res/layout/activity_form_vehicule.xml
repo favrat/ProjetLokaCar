@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_form_vehicule"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="eni.fr.lokacar.FormVehiculeActivity">
+
+    <EditText
+        android:id="@+id/et_marque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MARQUE"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_modele"
+        android:layout_below="@+id/et_marque"
+        android:text="MODELE" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_type_vehicule"
+        android:layout_below="@+id/et_modele"
+        android:text="TYPE DE VEHICULE"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_couleur"
+        android:layout_below="@+id/et_type_vehicule"
+        android:text="COULEUR"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_immat"
+        android:layout_below="@+id/et_couleur"
+        android:text="IMMATRICULATION"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sp_etat"
+        android:layout_below="@+id/et_immat"></Spinner>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_prix"
+        android:layout_below="@+id/sp_etat"
+        android:text="PRIX DE LOCATION"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_prix"
+        android:text="ENVOYER"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

@@ -111,7 +111,7 @@ public class AccessServeur {
 
                 resultat =new JSONArray(connect(path).toString().split(","));
 
-                Log.i("AUTO", String.valueOf(resultat));
+                Log.i("JSONARRAY", String.valueOf(resultat));
 
             } catch (Exception e) {
                 e.printStackTrace();

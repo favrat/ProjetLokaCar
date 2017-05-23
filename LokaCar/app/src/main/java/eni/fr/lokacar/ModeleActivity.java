@@ -31,5 +31,4 @@ public class ModeleActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerView.setAdapter(adapter);
     }
-
 }
