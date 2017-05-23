@@ -13,15 +13,15 @@ public class Location implements Parcelable {
     private int id;
     private Client id_Client;
     private Vehicule imat_Vehicule;
-    private boolean loue;
-    private Date dateDebut;
-    private Date dateFin;
-    private Boolean rendu;
+    private int loue;
+    private String dateDebut;
+    private String dateFin;
+    private int rendu;
 
     public Location() {
     }
 
-    public Location(Client id_Client, Vehicule imat_Vehicule, boolean loue, Date dateDebut, Date dateFin, Boolean rendu) {
+    public Location(Client id_Client, Vehicule imat_Vehicule, int loue, String dateDebut, String dateFin, int rendu) {
         this.id_Client = id_Client;
         this.imat_Vehicule = imat_Vehicule;
         this.loue = loue;
@@ -56,6 +56,14 @@ public class Location implements Parcelable {
         parcel.writeInt(id);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Client getId_Client() {
         return id_Client;
     }
@@ -72,35 +80,35 @@ public class Location implements Parcelable {
         this.imat_Vehicule = imat_Vehicule;
     }
 
-    public boolean isLoue() {
+    public int isLoue() {
         return loue;
     }
 
-    public void setLoue(boolean loue) {
+    public void setLoue(int loue) {
         this.loue = loue;
     }
 
-    public Date getDateDebut() {
+    public String getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(String dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 
-    public Boolean getRendu() {
+    public int getRendu() {
         return rendu;
     }
 
-    public void setRendu(Boolean rendu) {
+    public void setRendu(int rendu) {
         this.rendu = rendu;
     }
 

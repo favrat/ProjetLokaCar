@@ -9,16 +9,15 @@ import static eni.fr.lokacar.dao.contract.VehiculeContract.*;
 
 public class EtatContract {
 
-
     public static final String TABLE_ETAT = " etat ";
 
     public static final String COL_ID_ETAT = " id ";
     public static final String COL_IMATVEHICULE_ETAT = " imatVehicule ";
     public static final String COL_IDCLIENT_ETAT = " idClient ";
 
-    public static final int NUM_COL_ID_LOCATION  = 0;
-    public static final int NUM_COL_IMATVEHICULE_LOCATION = 1;
-    public static final int NUM_COL_IDCLIENT_LOCATION  = 2;
+    public static final int NUM_COL_ID_ETAT  = 0;
+    public static final int NUM_COL_IMATVEHICULE_ETAT = 1;
+    public static final int NUM_COL_IDCLIENT_ETAT  = 2;
 
 
     public static final String SQL_CREATE_TABLE =

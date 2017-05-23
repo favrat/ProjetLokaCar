@@ -9,8 +9,10 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import eni.fr.lokacar.dao.contract.ClientContract;
 import eni.fr.lokacar.dao.contract.VehiculeContract;
 import eni.fr.lokacar.helper.GestionBddHelper;
+import eni.fr.lokacar.model.Client;
 import eni.fr.lokacar.model.Vehicule;
 
 /**
@@ -50,7 +52,7 @@ public class VehiculeDao {
             while (cursor.moveToNext()) {
                 Vehicule vehicule = new Vehicule();
                 vehicule.setNum(cursor.getInt(VehiculeContract.NUM_COL_NUM_VEHICULE));
-                vehicule.setMarque(cursor.getClass(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
+                //vehicule.setMarque(cursor.getClass(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
                 vehicule.setModeleDossier(cursor.getString(VehiculeContract.NUM_COL_MODELEDOSSIER_VEHICULE));
                 vehicule.setModeleCommercial(cursor.getString(VehiculeContract.NUM_COL_MODELECOMMERCIAL_VEHICULE));
                 vehicule.setDesignation(cursor.getString(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE));
@@ -70,5 +72,19 @@ public class VehiculeDao {
         long id = vehicule.getNum();
         db.delete(VehiculeContract.TABLE_VEHICULE, VehiculeContract.NUM_COL_NUM_VEHICULE
                 + " = " + id, null);
+    }
+
+    public int update(Vehicule vehicule)
+    {
+        ContentValues content = new ContentValues();
+        content.put(String.valueOf(VehiculeContract.NUM_COL_MODELEDOSSIER_VEHICULE), vehicule.getModeleDossier());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_MODELECOMMERCIAL_VEHICULE), vehicule.getModeleCommercial());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE), vehicule.getDesignation());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_CNIT_VEHICULE), vehicule.getCodeNationalIdentificationType());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_VERSION_VEHICULE), vehicule.getTypeVarianteVersion());
+        content.put(String.valueOf(VehiculeContract.NUM_COL_CARBURANT_VEHICULE), vehicule.getCarburant());
+
+        return db.update(VehiculeContract.TABLE_VEHICULE, content, ClientContract.NUM_COL_ID_CLIENT + " = ?",
+                new String[] { String.valueOf(vehicule.getNum()) });
     }
 }
