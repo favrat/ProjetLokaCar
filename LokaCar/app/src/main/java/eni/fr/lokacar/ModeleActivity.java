@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.VehiculeAdapter;
@@ -13,6 +15,7 @@ public class ModeleActivity extends AppCompatActivity {
 
     private VehiculeAdapter adapter;
     private Marque marque;
+    private TextView tvMarque;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,10 @@ public class ModeleActivity extends AppCompatActivity {
 
         task.execute(marque);
 
+        tvMarque= (TextView)findViewById(R.id.tv_marque);
+        tvMarque.setText(marque.getLibelle());
+
+        Toast.makeText(this, String.valueOf(marque.getLibelle()), Toast.LENGTH_SHORT).show();
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.rv_modeles);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerView.setAdapter(adapter);

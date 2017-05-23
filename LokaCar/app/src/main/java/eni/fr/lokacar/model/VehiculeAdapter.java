@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,6 @@ import eni.fr.lokacar.R;
 public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.VehiculeHolder>{
 
     private List<Vehicule> listeVehicules;
-
     public VehiculeAdapter() {
         listeVehicules=new ArrayList();
     }
@@ -35,7 +35,6 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.Vehicu
                     Log.i("VEHICULE", "CLic sur " + vehicule.getDesignation());
                 }
             });
-
         }
 
         public Vehicule getVehicule() {
