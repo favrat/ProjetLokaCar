@@ -50,7 +50,7 @@ public class VehiculeDao {
             while (cursor.moveToNext()) {
                 Vehicule vehicule = new Vehicule();
                 vehicule.setNum(cursor.getInt(VehiculeContract.NUM_COL_NUM_VEHICULE));
-                vehicule.setMarque(cursor.getInt(VehiculeContract.NUM_COL_MARQUE_VEHICULE)));
+                vehicule.setMarque(cursor.getClass(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
                 vehicule.setModeleDossier(cursor.getString(VehiculeContract.NUM_COL_MODELEDOSSIER_VEHICULE));
                 vehicule.setModeleCommercial(cursor.getString(VehiculeContract.NUM_COL_MODELECOMMERCIAL_VEHICULE));
                 vehicule.setDesignation(cursor.getString(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE));
@@ -61,8 +61,14 @@ public class VehiculeDao {
             }
         }catch(Exception ex)
         {
-            Log.e("WOLOLO",ex.getMessage());
+            Log.e("ListVehicule",ex.getMessage());
         }
         return liste;
+    }
+
+    public void delete(Vehicule vehicule) {
+        long id = vehicule.getNum();
+        db.delete(VehiculeContract.TABLE_VEHICULE, VehiculeContract.NUM_COL_NUM_VEHICULE
+                + " = " + id, null);
     }
 }
