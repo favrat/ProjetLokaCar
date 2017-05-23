@@ -133,8 +133,12 @@ public class AccessServeur {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     Vehicule vehicule = new Vehicule();
 
-                    vehicule.setDesignation(jsonArray.getString(1));
+                    String json = jsonArray.getString(1);
+                    String[] res = json.split(":");
 
+                    vehicule.setDesignation(res[1]);
+
+                    Log.i("Vehicule",jsonArray.getString(1));
                     listeVehicules.add(vehicule);
                 }
                 adapter.setListeVehicules(listeVehicules);

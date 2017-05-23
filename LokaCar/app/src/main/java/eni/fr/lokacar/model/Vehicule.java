@@ -306,4 +306,5 @@ public class Vehicule {
     public void setCarrosserie(String carrosserie) {
         this.carrosserie = carrosserie;
     }
+
 }

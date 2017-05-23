@@ -32,7 +32,7 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.Vehicu
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.i("AUTO", "CLic sur " + vehicule.getDesignation());
+                    Log.i("VEHICULE", "CLic sur " + vehicule.getDesignation());
                 }
             });
 
