@@ -1,5 +1,6 @@
 package eni.fr.lokacar.model;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import eni.fr.lokacar.ModeleDetailActivity;
 import eni.fr.lokacar.R;
 
 public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.VehiculeHolder>{
@@ -33,6 +34,9 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.Vehicu
                 @Override
                 public void onClick(View view) {
                     Log.i("VEHICULE", "CLic sur " + vehicule.getDesignation());
+                    Intent intent=new Intent(view.getContext(), ModeleDetailActivity.class);
+                    intent.putExtra("vehicule",vehicule);
+                    view.getContext().startActivity(intent);
                 }
             });
         }

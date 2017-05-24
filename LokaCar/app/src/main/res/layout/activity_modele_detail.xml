@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_modele_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="eni.fr.lokacar.ModeleDetailActivity">
+
+    <TextView
+        android:id="@+id/et_marqueDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MARQUE"/>
+
+    <TextView
+        android:id="@+id/et_modeleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MODELE"
+        android:layout_below="@+id/et_marqueDetail"/>
+
+    <TextView
+        android:id="@+id/et_immatDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IMMAT"
+        android:layout_below="@+id/et_modeleDetail"/>
+
+    <TextView
+        android:id="@+id/et_couleurDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COULEUR"
+        android:layout_below="@+id/et_immatDetail"/>
+
+
+    <TextView
+        android:id="@+id/et_etatDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ETAT"
+        android:layout_below="@+id/et_nbKmDetail"
+        android:layout_alignStart="@+id/et_nbKmDetail"/>
+
+    <TextView
+        android:id="@+id/et_prixDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRIX"
+        android:layout_below="@+id/et_etatDetail"
+        android:layout_alignStart="@+id/et_etatDetail"/>
+
+    <TextView
+        android:id="@+id/et_loueDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOUE"
+        android:layout_below="@+id/et_prixDetail"
+        android:layout_alignStart="@+id/et_prixDetail" />
+
+    <TextView
+        android:id="@+id/et_nbKmDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KM"
+        android:layout_marginEnd="87dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_UpdateVehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifier"
+        android:onClick="onClickBtnUpdateVehicule"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btn_LoueVehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Louer"
+        android:onClick="onClickBtnLoueVehicule"
+        android:layout_alignBaseline="@+id/btn_DeleteVehicule"
+        android:layout_alignBottom="@+id/btn_DeleteVehicule"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_DeleteVehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supprimer"
+        android:onClick="onClickBtnDeleteVehicule"
+        android:layout_alignBaseline="@+id/btn_UpdateVehicule"
+        android:layout_alignBottom="@+id/btn_UpdateVehicule"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

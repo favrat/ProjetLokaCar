@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ModeleActivity" />
-        <activity android:name=".FormVehiculeActivity"></activity>
+        <activity android:name=".FormVehiculeActivity" />
+        <activity android:name=".ModeleDetailActivity"></activity>
     </application>
 
 </manifest>
