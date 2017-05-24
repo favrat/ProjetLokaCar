@@ -127,9 +127,11 @@ public class AccessServeur {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     Vehicule vehicule = new Vehicule();
                     JSONObject perResult = jsonArray.getJSONObject(i);
-                    String json = perResult.getString("ModeleCommercial");
+                    String jsonModelCommercial = perResult.getString("ModeleCommercial");
+                    String jsonCNIT = perResult.getString("CNIT");
                     //Log.i("Vehicule",json);
-                    vehicule.setDesignation(json);
+                    vehicule.setDesignation(jsonModelCommercial);
+                    vehicule.setCodeNationalIdentificationType(jsonCNIT);
                     listeVehicules.add(vehicule);
                 }
                 adapter.setListeVehicules(listeVehicules);

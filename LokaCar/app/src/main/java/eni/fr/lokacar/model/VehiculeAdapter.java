@@ -1,5 +1,6 @@
 package eni.fr.lokacar.model;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,8 +12,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import eni.fr.lokacar.MainActivity;
 import eni.fr.lokacar.ModeleDetailActivity;
 import eni.fr.lokacar.R;
+
+import static java.security.AccessController.getContext;
 
 public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.VehiculeHolder>{
 
@@ -80,6 +85,5 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.Vehicu
     public int getItemCount() {
         return listeVehicules.size();
     }
-
 
 }
