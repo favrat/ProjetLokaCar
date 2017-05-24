@@ -6,6 +6,7 @@ import android.util.Log;
 import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.MarqueAdapter;
 import eni.fr.lokacar.model.Vehicule;
+import eni.fr.lokacar.model.VehiculeAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -120,12 +121,11 @@ public class AccessServeur {
             Log.i("AUTO", "préexecution ok ");
         }
 
-        protected void onPostExecute(JSONArray jsonArray, Marque marque) {
+        protected void onPostExecute(JSONArray jsonArray) {
             super.onPostExecute(jsonArray);
             try {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     Vehicule vehicule = new Vehicule();
-                    marque.getLibelle();
                     String json = jsonArray.getString(1).replace('"',' ');
                     String[] res = json.split(":");
 

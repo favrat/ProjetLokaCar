@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import eni.fr.lokacar.ModeleActivity;
 import eni.fr.lokacar.R;
 
 import java.util.ArrayList;

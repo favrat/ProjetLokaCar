@@ -19,11 +19,11 @@ public class VehiculeContract {
 
     public static final int NUM_COL_NUM_VEHICULE = 0;
     public static final int NUM_COL_MARQUE_VEHICULE = 1;
-    public static final int NUM_COL_DESIGNATION_VEHICULE = 1;
-    public static final int NUM_COL_CNIT_VEHICULE = 2;
-    public static final int NUM_COL_PRIX_VEHICULE = 3;
-    public static final int NUM_COL_COULEUR_VEHICULE = 4;
-    public static final int NUM_COL_VERSION_VEHICULE = 5;
+    public static final int NUM_COL_DESIGNATION_VEHICULE = 2;
+    public static final int NUM_COL_CNIT_VEHICULE = 3;
+    public static final int NUM_COL_PRIX_VEHICULE = 4;
+    public static final int NUM_COL_COULEUR_VEHICULE = 5;
+    public static final int NUM_COL_VERSION_VEHICULE = 6;
     //Etat
 
     public static final String SQL_CREATE_TABLE =
