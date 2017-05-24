@@ -6,7 +6,7 @@ package eni.fr.lokacar.model;
 public class Vehicule {
 
     private int num;
-    private Marque marque;
+    private String marque;
     private String modeleDossier;
     private String modeleCommercial;
     private String designation;
@@ -49,7 +49,8 @@ public class Vehicule {
     public Vehicule() {
     }
 
-    public Vehicule(String designation, String codeNationalIdentificationType, String typeVarianteVersion, String couleur, String prix) {
+    public Vehicule(String marque, String designation, String codeNationalIdentificationType, String typeVarianteVersion, String couleur, String prix) {
+        this.marque = marque;
         this.designation = designation;
         this.codeNationalIdentificationType = codeNationalIdentificationType;
         this.typeVarianteVersion = typeVarianteVersion;
@@ -65,11 +66,11 @@ public class Vehicule {
         this.num = num;
     }
 
-    public Marque getMarque() {
+    public String getMarque() {
         return marque;
     }
 
-    public void setMarque(Marque marque) {
+    public void setMarque(String marque) {
         this.marque = marque;
     }
 

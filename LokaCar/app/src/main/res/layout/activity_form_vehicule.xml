@@ -14,35 +14,35 @@
         android:id="@+id/et_marque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MARQUE"/>
+        android:hint="MARQUE"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/et_modele"
         android:layout_below="@+id/et_marque"
-        android:text="MODELE" />
+        android:hint="MODELE" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/et_type_vehicule"
         android:layout_below="@+id/et_modele"
-        android:text="TYPE DE VEHICULE"/>
+        android:hint="TYPE DE VEHICULE"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/et_couleur"
         android:layout_below="@+id/et_type_vehicule"
-        android:text="COULEUR"/>
+        android:hint="COULEUR"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/et_immat"
         android:layout_below="@+id/et_couleur"
-        android:text="IMMATRICULATION"/>
+        android:hint="IMMATRICULATION"/>
 
     <Spinner
         android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/et_prix"
         android:layout_below="@+id/sp_etat"
-        android:text="PRIX DE LOCATION"/>
+        android:hint="PRIX DE LOCATION"/>
 
     <Button
         android:layout_width="wrap_content"

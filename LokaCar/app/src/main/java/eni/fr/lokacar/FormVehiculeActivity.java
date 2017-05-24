@@ -42,10 +42,11 @@ public class FormVehiculeActivity extends AppCompatActivity {
         etPrix = (EditText) findViewById(R.id.et_prix);
 
         Vehicule vehicule = new Vehicule(
+                                         String.valueOf(etMarque.getText()),
                                          String.valueOf(etModele.getText()),
+                                         String.valueOf(etimmat.getText()),
                                          String.valueOf(etTypeVehicule.getText()),
                                          String.valueOf(etCouleur.getText()),
-                                         String.valueOf(etimmat.getText()),
                                          //String.valueOf(spEtat.getSelectedItem().toString()),
                                          String.valueOf(etPrix.getText()));
         VehiculeDao dao = new VehiculeDao(this);

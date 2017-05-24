@@ -2,12 +2,10 @@ package eni.fr.lokacar.serveur;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 
 import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.MarqueAdapter;
 import eni.fr.lokacar.model.Vehicule;
-import eni.fr.lokacar.model.VehiculeAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,14 +40,12 @@ public class AccessServeur {
 
         @Override
         protected JSONArray doInBackground(Void... voids) {
-            Log.i("AUTO", "doInBackground()");
             JSONArray resultat = null;
 
             try {
                 String path = UrlServeur.getUrlMarques();
                 Log.i("AUTO", "path : " + path);
                 JSONObject jsonObject = new JSONObject(connect(path).toString());
-                Log.i("AUTO","JSONOBject créé");
                 resultat = jsonObject.getJSONArray("Marque");
                 Log.i("AUTO", "fin doInBackground()");
 
@@ -108,9 +104,7 @@ public class AccessServeur {
                 String path = UrlServeur.getUrlModelesByMarque();
                 path += marques[0].getLibelle();
                 Log.i("AUTO", "path : " + path);
-
                 resultat =new JSONArray(connect(path).toString().split(","));
-
                 Log.i("JSONARRAY", String.valueOf(resultat));
 
             } catch (Exception e) {
@@ -126,19 +120,18 @@ public class AccessServeur {
             Log.i("AUTO", "préexecution ok ");
         }
 
-        @Override
-        protected void onPostExecute(JSONArray jsonArray) {
+        protected void onPostExecute(JSONArray jsonArray, Marque marque) {
             super.onPostExecute(jsonArray);
             try {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     Vehicule vehicule = new Vehicule();
-
-                    String json = jsonArray.getString(1);
+                    marque.getLibelle();
+                    String json = jsonArray.getString(1).replace('"',' ');
                     String[] res = json.split(":");
 
                     vehicule.setDesignation(res[1]);
 
-                    Log.i("Vehicule",jsonArray.getString(1));
+                   // Log.i("Vehicule",jsonArray.getString(1));
                     listeVehicules.add(vehicule);
                 }
                 adapter.setListeVehicules(listeVehicules);
@@ -184,10 +177,6 @@ public class AccessServeur {
             Log.i("AUTO", "lecture finie");
             connection.disconnect();
             Log.i("AUTO", "connection fermée");
-
-            // Vérifier l'utilité de cette ligne
-            Log.i("AUTO", "pause de 2secondes");
-            Thread.sleep(2000);
 
         } catch (Exception e) {
             Log.e("AUTO", e.getMessage());

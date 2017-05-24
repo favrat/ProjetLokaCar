@@ -34,13 +34,12 @@ public class VehiculeDao {
     {
         ContentValues content = new ContentValues();
         try {
-            content.put(VehiculeContract.COL_NUM_VEHICULE, item.getNum());
-            //content.put(VehiculeContract.COL_MARQUE_VEHICULE, String.valueOf(item.getMarque()));
+            content.put(VehiculeContract.COL_MARQUE_VEHICULE, String.valueOf(item.getMarque()));
             content.put(VehiculeContract.COL_DESIGNATION_VEHICULE, item.getDesignation());
             content.put(VehiculeContract.COL_VERSION_VEHICULE, item.getTypeVarianteVersion());
-            content.put(VehiculeContract.COL_COULEUR_VEHICULE, item.getTypeVarianteVersion());
+            content.put(VehiculeContract.COL_COULEUR_VEHICULE, item.getCouleur());
             content.put(VehiculeContract.COL_CNIT_VEHICULE, item.getCodeNationalIdentificationType());
-            content.put(VehiculeContract.COL_PRIX_VEHICULE, item.getCarburant());
+            content.put(VehiculeContract.COL_PRIX_VEHICULE, item.getPrix());
 
             Log.i("Designation", VehiculeContract.COL_DESIGNATION_VEHICULE);
         }catch (Exception ex){
@@ -57,7 +56,7 @@ public class VehiculeDao {
             while (cursor.moveToNext()) {
                 Vehicule vehicule = new Vehicule();
                 vehicule.setNum(cursor.getInt(VehiculeContract.NUM_COL_NUM_VEHICULE));
-                //vehicule.setMarque(cursor.getClass(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
+                vehicule.setMarque(cursor.getString(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
                 vehicule.setDesignation(cursor.getString(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE));
                 vehicule.setTypeVarianteVersion(cursor.getString(VehiculeContract.NUM_COL_VERSION_VEHICULE));
                 vehicule.setTypeVarianteVersion(cursor.getString(VehiculeContract.NUM_COL_COULEUR_VEHICULE));

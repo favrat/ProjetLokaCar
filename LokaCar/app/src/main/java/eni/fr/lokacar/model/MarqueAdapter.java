@@ -7,15 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import eni.fr.lokacar.ModeleActivity;
 import eni.fr.lokacar.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.support.v7.recyclerview.R.styleable.RecyclerView;
 
 /**
  * Created by Administrateur on 18/05/2017.
