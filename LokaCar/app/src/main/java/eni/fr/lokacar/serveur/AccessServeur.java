@@ -105,7 +105,7 @@ public class AccessServeur {
                 String path = UrlServeur.getUrlModelesByMarque();
                 path += marques[0].getLibelle();
                 Log.i("AUTO", "path : " + path);
-                resultat =new JSONArray(connect(path).toString().split(","));
+                resultat =new JSONArray(connect(path).toString());
                 Log.i("JSONARRAY", String.valueOf(resultat));
 
             } catch (Exception e) {
@@ -126,17 +126,14 @@ public class AccessServeur {
             try {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     Vehicule vehicule = new Vehicule();
-                    String json = jsonArray.getString(1).replace('"',' ');
-                    String[] res = json.split(":");
-
-                    vehicule.setDesignation(res[1]);
-
-                   // Log.i("Vehicule",jsonArray.getString(1));
+                    JSONObject perResult = jsonArray.getJSONObject(i);
+                    String json = perResult.getString("ModeleCommercial");
+                    //Log.i("Vehicule",json);
+                    vehicule.setDesignation(json);
                     listeVehicules.add(vehicule);
                 }
                 adapter.setListeVehicules(listeVehicules);
                 adapter.notifyDataSetChanged();
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
