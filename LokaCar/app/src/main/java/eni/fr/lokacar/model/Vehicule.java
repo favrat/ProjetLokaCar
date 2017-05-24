@@ -1,9 +1,13 @@
 package eni.fr.lokacar.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Administrateur on 17/05/2017.
  */
 
-public class Vehicule {
+public class Vehicule implements Parcelable {
 
     private int num;
     private String marque;
@@ -57,6 +61,48 @@ public class Vehicule {
         this.couleur = couleur;
         this.prix = prix;
     }
+
+    protected Vehicule(Parcel in) {
+        num = in.readInt();
+        marque = in.readString();
+        modeleDossier = in.readString();
+        modeleCommercial = in.readString();
+        designation = in.readString();
+        codeNationalIdentificationType = in.readString();
+        typeVarianteVersion = in.readString();
+        carburant = in.readString();
+        couleur = in.readString();
+        prix = in.readString();
+        puissanceAdministrative = in.readInt();
+        puissanceMaximale = in.readInt();
+        boiteDeVitesse = in.readString();
+        consommationUrbaine = in.readInt();
+        consommationMixte = in.readInt();
+        consommationExtraUrbaine = in.readInt();
+        emissionCo2 = in.readInt();
+        essaiCO2 = in.readInt();
+        essaiHC = in.readInt();
+        essaiNox = in.readInt();
+        essaiHCNOX = in.readInt();
+        essaiParticule = in.readInt();
+        masseMini = in.readInt();
+        masseMaxi = in.readInt();
+        champV9 = in.readString();
+        dateMiseAjour = in.readString();
+        carrosserie = in.readString();
+    }
+
+    public static final Creator<Vehicule> CREATOR = new Creator<Vehicule>() {
+        @Override
+        public Vehicule createFromParcel(Parcel in) {
+            return new Vehicule(in);
+        }
+
+        @Override
+        public Vehicule[] newArray(int size) {
+            return new Vehicule[size];
+        }
+    };
 
     public int getNum() {
         return num;
@@ -332,5 +378,41 @@ public class Vehicule {
 
     public void setPrix(String prix) {
         this.prix = prix;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(num);
+        parcel.writeString(marque);
+        parcel.writeString(modeleDossier);
+        parcel.writeString(modeleCommercial);
+        parcel.writeString(designation);
+        parcel.writeString(codeNationalIdentificationType);
+        parcel.writeString(typeVarianteVersion);
+        parcel.writeString(carburant);
+        parcel.writeString(couleur);
+        parcel.writeString(prix);
+        parcel.writeInt(puissanceAdministrative);
+        parcel.writeInt(puissanceMaximale);
+        parcel.writeString(boiteDeVitesse);
+        parcel.writeInt(consommationUrbaine);
+        parcel.writeInt(consommationMixte);
+        parcel.writeInt(consommationExtraUrbaine);
+        parcel.writeInt(emissionCo2);
+        parcel.writeInt(essaiCO2);
+        parcel.writeInt(essaiHC);
+        parcel.writeInt(essaiNox);
+        parcel.writeInt(essaiHCNOX);
+        parcel.writeInt(essaiParticule);
+        parcel.writeInt(masseMini);
+        parcel.writeInt(masseMaxi);
+        parcel.writeString(champV9);
+        parcel.writeString(dateMiseAjour);
+        parcel.writeString(carrosserie);
     }
 }
