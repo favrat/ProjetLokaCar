@@ -35,10 +35,10 @@ public class LocationContract {
                     + "INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COL_IDCLIENT_LOCATION
                     + "INTEGER,"
-                    + " FOREIGN KEY ("+COL_IDCLIENT_LOCATION+") REFERENCES "+TABLE_CLIENT+"("+COL_ID_CLIENT+"),"
+                    //+ " FOREIGN KEY ("+COL_IDCLIENT_LOCATION+") REFERENCES "+TABLE_CLIENT+"("+COL_ID_CLIENT+"),"
                     + COL_IMATVEHICULE_LOCATION
                     + "INTEGER,"
-                    + " FOREIGN KEY ("+COL_IMATVEHICULE_LOCATION+") REFERENCES "+TABLE_VEHICULE+"("+COL_NUM_VEHICULE+"),"
+                    //+ " FOREIGN KEY ("+COL_IMATVEHICULE_LOCATION+") REFERENCES "+TABLE_VEHICULE+"("+COL_NUM_VEHICULE+"),"
                    // + COL_lOUE_LOCATION
                     // + "INTEGER"
                     + COL_DATEDEBUT_LOCATION
