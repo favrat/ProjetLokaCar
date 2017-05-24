@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eni.fr.lokacar.dao.contract.ClientContract;
+import eni.fr.lokacar.dao.contract.MarqueContract;
 import eni.fr.lokacar.dao.contract.VehiculeContract;
 import eni.fr.lokacar.helper.GestionBddHelper;
 import eni.fr.lokacar.model.Client;
+import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.Vehicule;
 
 /**
@@ -88,5 +90,27 @@ public class VehiculeDao {
 
         return db.update(VehiculeContract.TABLE_VEHICULE, content, ClientContract.NUM_COL_ID_CLIENT + " = ?",
                 new String[] { String.valueOf(vehicule.getNum()) });
+    }
+
+    public List<Vehicule> getByMarque(String marque) {
+        List<Vehicule> liste = new ArrayList<>();
+        try {
+            Cursor cursor = db.rawQuery("SELECT * FROM vehicule where marque='"+marque+"'", null);
+            while (cursor.moveToNext()) {
+                Vehicule vehicule = new Vehicule();
+                vehicule.setNum(cursor.getInt(VehiculeContract.NUM_COL_NUM_VEHICULE));
+                vehicule.setMarque(cursor.getString(VehiculeContract.NUM_COL_MARQUE_VEHICULE));
+                vehicule.setDesignation(cursor.getString(VehiculeContract.NUM_COL_DESIGNATION_VEHICULE));
+                vehicule.setTypeVarianteVersion(cursor.getString(VehiculeContract.NUM_COL_VERSION_VEHICULE));
+                vehicule.setTypeVarianteVersion(cursor.getString(VehiculeContract.NUM_COL_COULEUR_VEHICULE));
+                vehicule.setCodeNationalIdentificationType(cursor.getString(VehiculeContract.NUM_COL_CNIT_VEHICULE));
+                vehicule.setCarburant(cursor.getString(VehiculeContract.NUM_COL_PRIX_VEHICULE));
+                liste.add(vehicule);
+            }
+        }catch(Exception ex)
+        {
+            Log.e("ListVehicule",ex.getMessage());
+        }
+        return liste;
     }
 }

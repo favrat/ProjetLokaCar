@@ -79,11 +79,11 @@ public class AccessServeur {
                     //Insertion dans la table marque
                     MarqueDao dao = new MarqueDao(mContext);
                     long id = 1;
-                    /*try {
+                    try {
                         id = dao.insert(marque);
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }*/
+                    }
                 }
 
                 //Get All marque
@@ -157,15 +157,15 @@ public class AccessServeur {
                     VehiculeDao vDao = new VehiculeDao(mContext);
 
                     long id = 1;
-                    try {
+                    /*try {
                         id = vDao.insert(vehicule);
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }
-
-                    listeVehicules.add(vehicule);
+                    }*/
                     Log.i("MARQUES",mMarques.getLibelle());
                 }
+                VehiculeDao vehiculeDao = new VehiculeDao(mContext);
+                listeVehicules = vehiculeDao.getByMarque(mMarques.getLibelle());
                 adapter.setListeVehicules(listeVehicules);
                 adapter.notifyDataSetChanged();
             } catch (JSONException e) {

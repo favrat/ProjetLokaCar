@@ -25,7 +25,7 @@ public class MarqueContract {
                     + COL_NUM_MARQUE
                     + "INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + COL_LIBELLE_MARQUE
-                    + "TEXT"
+                    + "TEXT unique"
                     + ");";
 
     public static final String SQL_DROP_TABLE =

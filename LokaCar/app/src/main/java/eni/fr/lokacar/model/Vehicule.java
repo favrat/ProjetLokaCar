@@ -53,6 +53,10 @@ public class Vehicule implements Parcelable {
     public Vehicule() {
     }
 
+    public Vehicule(String marque) {
+        this.marque = marque;
+    }
+
     public Vehicule(String marque, String designation, String codeNationalIdentificationType, String typeVarianteVersion, String couleur, String prix) {
         this.marque = marque;
         this.designation = designation;
