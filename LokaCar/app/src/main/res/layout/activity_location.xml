@@ -14,13 +14,13 @@
         android:id="@+id/et_locationIdClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IDCLIENT"/>
+        android:hint="IDCLIENT"/>
 
     <EditText
         android:id="@+id/et_locationImatVehicule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IMATRICULATION"
+        android:hint="IMATRICULATION"
         android:layout_below="@+id/et_locationIdClient"/>
 
     <EditText
@@ -28,14 +28,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_locationImatVehicule"
-        android:text="DATEDEBUT"/>
+        android:hint="DATEDEBUT"/>
 
     <EditText
         android:id="@+id/et_locationDateFin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_locationDateDebut"
-        android:text="DATEFIN"/>
+        android:hint="DATEFIN"/>
 
 
     <Button
