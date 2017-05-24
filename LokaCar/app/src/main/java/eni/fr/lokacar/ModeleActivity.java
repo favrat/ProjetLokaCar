@@ -11,21 +11,19 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
+
+import eni.fr.lokacar.dao.MarqueDao;
 import eni.fr.lokacar.dao.VehiculeDao;
 import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.Vehicule;
 import eni.fr.lokacar.model.VehiculeAdapter;
 import eni.fr.lokacar.serveur.AccessServeur;
 
-public class ModeleActivity extends AppCompatActivity {
+public class ModeleActivity extends AppCompatActivity{
 
     private VehiculeAdapter adapter;
     private Marque marque;
     private TextView tvMarque;
-
-    public void onItemClickListener(Vehicule vehicule){
-
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +33,9 @@ public class ModeleActivity extends AppCompatActivity {
 
         adapter = new VehiculeAdapter();
 
-        AccessServeur.TaskAllModelesByMarque task= new AccessServeur.TaskAllModelesByMarque(adapter);
+        AccessServeur.TaskAllModelesByMarque task= new AccessServeur.TaskAllModelesByMarque(adapter, this, marque);
 
+        Log.i("ADAPTERMODELE", String.valueOf(adapter.getListeVehicules()));
         task.execute(marque);
 
         Toast.makeText(this, String.valueOf(marque.getLibelle()), Toast.LENGTH_SHORT).show();

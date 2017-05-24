@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new MarqueAdapter();
 
-        AccessServeur.TaskAllMarques task= new AccessServeur.TaskAllMarques(adapter);
+        AccessServeur.TaskAllMarques task= new AccessServeur.TaskAllMarques(adapter, this);
 
         task.execute();
 

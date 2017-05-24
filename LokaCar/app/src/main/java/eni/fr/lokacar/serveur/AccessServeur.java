@@ -1,8 +1,12 @@
 package eni.fr.lokacar.serveur;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import eni.fr.lokacar.dao.MarqueDao;
+import eni.fr.lokacar.dao.VehiculeDao;
 import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.MarqueAdapter;
 import eni.fr.lokacar.model.Vehicule;
@@ -32,11 +36,13 @@ public class AccessServeur {
     public static class TaskAllMarques extends AsyncTask<Void, Void, JSONArray> {
         private MarqueAdapter adapter;
         private List<Marque> listeMarques;
+        private Context mContext;
 
-        public TaskAllMarques(MarqueAdapter adapter) {
+        public TaskAllMarques(MarqueAdapter adapter, Context context) {
             Log.i("AUTO", "Constructeur");
             this.adapter = adapter;
             listeMarques = new ArrayList();
+            mContext = context;
         }
 
         @Override
@@ -49,7 +55,6 @@ public class AccessServeur {
                 JSONObject jsonObject = new JSONObject(connect(path).toString());
                 resultat = jsonObject.getJSONArray("Marque");
                 Log.i("AUTO", "fin doInBackground()");
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -70,11 +75,22 @@ public class AccessServeur {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     Marque marque = new Marque();
                     marque.setLibelle(jsonArray.getString(i));
-                    listeMarques.add(marque);
+
+                    //Insertion dans la table marque
+                    MarqueDao dao = new MarqueDao(mContext);
+                    long id = 1;
+                    /*try {
+                        id = dao.insert(marque);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }*/
                 }
+
+                //Get All marque
+                MarqueDao mrq = new MarqueDao(mContext);
+                listeMarques = mrq.get();
                 adapter.setListeMarque(listeMarques);
                 adapter.notifyDataSetChanged();
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -89,11 +105,15 @@ public class AccessServeur {
     public static class TaskAllModelesByMarque extends AsyncTask<Marque, Void, JSONArray> {
         private VehiculeAdapter adapter;
         private List<Vehicule> listeVehicules;
+        private Marque mMarques;
+        private Context mContext;
 
-        public TaskAllModelesByMarque(VehiculeAdapter adapter) {
+        public TaskAllModelesByMarque(VehiculeAdapter adapter,Context context, Marque marques) {
             Log.i("AUTO", "Constructeur");
             this.adapter = adapter;
             listeVehicules = new ArrayList();
+            mMarques = marques;
+            mContext = context;
         }
 
         @Override
@@ -129,10 +149,22 @@ public class AccessServeur {
                     JSONObject perResult = jsonArray.getJSONObject(i);
                     String jsonModelCommercial = perResult.getString("ModeleCommercial");
                     String jsonCNIT = perResult.getString("CNIT");
-                    //Log.i("Vehicule",json);
                     vehicule.setDesignation(jsonModelCommercial);
                     vehicule.setCodeNationalIdentificationType(jsonCNIT);
+                    vehicule.setMarque(mMarques.getLibelle());
+
+                    //Insertion dans la table vehicule
+                    VehiculeDao vDao = new VehiculeDao(mContext);
+
+                    long id = 1;
+                    try {
+                        id = vDao.insert(vehicule);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     listeVehicules.add(vehicule);
+                    Log.i("MARQUES",mMarques.getLibelle());
                 }
                 adapter.setListeVehicules(listeVehicules);
                 adapter.notifyDataSetChanged();
@@ -183,6 +215,4 @@ public class AccessServeur {
         Log.i("AUTO", "fin connect");
         return builder;
     }
-
-
 }

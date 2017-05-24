@@ -9,7 +9,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import eni.fr.lokacar.dao.MarqueDao;
 import eni.fr.lokacar.dao.VehiculeDao;
+import eni.fr.lokacar.model.Marque;
 import eni.fr.lokacar.model.Vehicule;
 
 public class FormVehiculeActivity extends AppCompatActivity {
@@ -41,6 +43,7 @@ public class FormVehiculeActivity extends AppCompatActivity {
         //spEtat = (Spinner) findViewById(R.id.sp_etat);
         etPrix = (EditText) findViewById(R.id.et_prix);
 
+        Marque marque = new Marque(String.valueOf(etMarque.getText()));
         Vehicule vehicule = new Vehicule(
                                          String.valueOf(etMarque.getText()),
                                          String.valueOf(etModele.getText()),
@@ -50,9 +53,12 @@ public class FormVehiculeActivity extends AppCompatActivity {
                                          //String.valueOf(spEtat.getSelectedItem().toString()),
                                          String.valueOf(etPrix.getText()));
         VehiculeDao dao = new VehiculeDao(this);
+        MarqueDao mDao = new MarqueDao(this);
         long id = 1;
+        long num;
         try {
             id = dao.insert(vehicule);
+            num = mDao.insert(marque);
             Intent intention = new Intent(this,MainActivity.class);
             startActivity(intention);
         } catch (Exception e) {

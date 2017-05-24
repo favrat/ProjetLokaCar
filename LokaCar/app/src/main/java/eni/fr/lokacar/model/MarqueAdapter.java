@@ -50,10 +50,8 @@ public class MarqueAdapter extends RecyclerView.Adapter<MarqueAdapter.MarqueHold
                     Intent intent=new Intent(view.getContext(), ModeleActivity.class);
                     intent.putExtra("marque",marque);
                     view.getContext().startActivity(intent);
-
                 }
             });
-
         }
 
         public Marque getMarque() {

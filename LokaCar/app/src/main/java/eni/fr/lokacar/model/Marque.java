@@ -8,12 +8,26 @@ import android.os.Parcelable;
 
 public class Marque implements Parcelable{
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String libelle;
 
     public Marque() {
     }
 
-    protected Marque(Parcel in) {
+    public Marque(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public Marque(Parcel in) {
         libelle = in.readString();
     }
 

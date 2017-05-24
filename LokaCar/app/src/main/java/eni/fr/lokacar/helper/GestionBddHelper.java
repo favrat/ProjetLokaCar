@@ -5,6 +5,7 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import eni.fr.lokacar.dao.contract.MarqueContract;
 import eni.fr.lokacar.dao.contract.VehiculeContract;
 
 /**
@@ -20,10 +21,12 @@ public class GestionBddHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(VehiculeContract.SQL_CREATE_TABLE);
+        sqLiteDatabase.execSQL(MarqueContract.SQL_CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(VehiculeContract.SQL_DROP_TABLE);
+        sqLiteDatabase.execSQL(MarqueContract.SQL_DROP_TABLE);
     }
 }
