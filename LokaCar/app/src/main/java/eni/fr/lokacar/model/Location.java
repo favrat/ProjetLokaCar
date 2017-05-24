@@ -11,8 +11,8 @@ import java.util.Date;
 
 public class Location implements Parcelable {
     private int id;
-    private Client id_Client;
-    private Vehicule imat_Vehicule;
+    private String id_Client;
+    private String imat_Vehicule;
     private int loue;
     private String dateDebut;
     private String dateFin;
@@ -21,7 +21,14 @@ public class Location implements Parcelable {
     public Location() {
     }
 
-    public Location(Client id_Client, Vehicule imat_Vehicule, int loue, String dateDebut, String dateFin, int rendu) {
+    public Location(String id_Client, String imat_Vehicule, String dateDebut, String dateFin) {
+        this.id_Client = id_Client;
+        this.imat_Vehicule = imat_Vehicule;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+    }
+
+    public Location(String id_Client, String imat_Vehicule, int loue, String dateDebut, String dateFin, int rendu) {
         this.id_Client = id_Client;
         this.imat_Vehicule = imat_Vehicule;
         this.loue = loue;
@@ -64,19 +71,19 @@ public class Location implements Parcelable {
         this.id = id;
     }
 
-    public Client getId_Client() {
+    public String getId_Client() {
         return id_Client;
     }
 
-    public void setId_Client(Client id_Client) {
+    public void setId_Client(String id_Client) {
         this.id_Client = id_Client;
     }
 
-    public Vehicule getImat_Vehicule() {
+    public String getImat_Vehicule() {
         return imat_Vehicule;
     }
 
-    public void setImat_Vehicule(Vehicule imat_Vehicule) {
+    public void setImat_Vehicule(String imat_Vehicule) {
         this.imat_Vehicule = imat_Vehicule;
     }
 
