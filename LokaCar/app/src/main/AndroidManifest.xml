@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".ModeleActivity" />
         <activity android:name=".FormVehiculeActivity" />
-        <activity android:name=".ModeleDetailActivity"></activity>
+        <activity android:name=".ModeleDetailActivity" />
+        <activity android:name=".LocationActivity"></activity>
     </application>
 
 </manifest>

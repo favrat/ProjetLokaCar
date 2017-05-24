@@ -31,13 +31,13 @@ public class LocationDao {
     public long insert(Location item)
     {
         ContentValues content = new ContentValues();
-        content.put(LocationContract.COL_ID_LOCATION,item.getId());
+        //content.put(LocationContract.COL_ID_LOCATION,item.getId());
         content.put(LocationContract.COL_IDCLIENT_LOCATION, String.valueOf(item.getId_Client()));
         content.put(LocationContract.COL_IMATVEHICULE_LOCATION,String.valueOf(item.getImat_Vehicule()));
-        content.put(LocationContract.COL_lOUE_LOCATION,item.isLoue());
+        //content.put(LocationContract.COL_lOUE_LOCATION,item.isLoue());
         content.put(LocationContract.COL_DATEDEBUT_LOCATION,item.getDateDebut());
         content.put(LocationContract.COL_DATEFIN_LOCATION,item.getDateFin());
-        content.put(LocationContract.COL_RENDU_LOCATION,item.getRendu());
+        //content.put(LocationContract.COL_RENDU_LOCATION,item.getRendu());
         return db.insert(LocationContract.TABLE_LOCATION,null,content);
     }
 
@@ -49,12 +49,12 @@ public class LocationDao {
             while (cursor.moveToNext()) {
                 Location location = new Location();
                 location.setId(cursor.getInt(LocationContract.NUM_COL_ID_LOCATION));
-                //location.setId_Client(cursor.getClass(LocationContract.NUM_COL_IDCLIENT_LOCATION));
-                //location.setImat_Vehicule(cursor.getClass(LocationContract.NUM_COL_IMATVEHICULE_LOCATION));
-                location.setLoue(cursor.getInt(LocationContract.NUM_COL_lOUE_LOCATION));
+                location.setId_Client(cursor.getString(LocationContract.NUM_COL_IDCLIENT_LOCATION));
+                location.setImat_Vehicule(cursor.getString(LocationContract.NUM_COL_IMATVEHICULE_LOCATION));
+                //location.setLoue(cursor.getInt(LocationContract.NUM_COL_lOUE_LOCATION));
                 location.setDateDebut(cursor.getString(LocationContract.NUM_COL_DATEDEBUT_LOCATION));
                 location.setDateFin(cursor.getString(LocationContract.NUM_COL_DATEFIN_LOCATION));
-                location.setRendu(cursor.getInt(LocationContract.NUM_COL_RENDU_LOCATION));
+                //location.setRendu(cursor.getInt(LocationContract.NUM_COL_RENDU_LOCATION));
                 liste.add(location);
             }
         }catch(Exception ex)
@@ -73,10 +73,10 @@ public class LocationDao {
     public int update(Location location)
     {
         ContentValues content = new ContentValues();
-        content.put(String.valueOf(LocationContract.NUM_COL_lOUE_LOCATION), location.isLoue());
+        //content.put(String.valueOf(LocationContract.NUM_COL_lOUE_LOCATION), location.isLoue());
         content.put(String.valueOf(LocationContract.NUM_COL_DATEDEBUT_LOCATION),location.getDateDebut());
         content.put(String.valueOf(LocationContract.NUM_COL_DATEFIN_LOCATION),location.getDateFin());
-        content.put(String.valueOf(LocationContract.NUM_COL_RENDU_LOCATION),location.getRendu());
+        //content.put(String.valueOf(LocationContract.NUM_COL_RENDU_LOCATION),location.getRendu());
 
         return db.update(LocationContract.TABLE_LOCATION, content, LocationContract.NUM_COL_ID_LOCATION + " = ?",
                 new String[] { String.valueOf(location.getId()) });

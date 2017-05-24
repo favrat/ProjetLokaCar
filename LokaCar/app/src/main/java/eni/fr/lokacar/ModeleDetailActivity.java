@@ -40,4 +40,9 @@ public class ModeleDetailActivity extends AppCompatActivity {
 
         Toast.makeText(this, String.valueOf(vehicule.getDesignation()), Toast.LENGTH_SHORT).show();
     }
+
+    public void onClickBtnLoueVehicule(View view) {
+        Intent intent=new Intent(this, LocationActivity.class);
+        view.getContext().startActivity(intent);
+    }
 }
